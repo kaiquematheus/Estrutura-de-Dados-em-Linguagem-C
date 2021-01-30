@@ -1,13 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "FuncoesProcedimentos.c"
+#include "FuncoesProcedimentosLLDE.c"
 
 // main
 int main(int argc, const char * argv[]){
-	LLSE ll,lls;
+	LLDE lld,llds;
 	int op,valor;
-	
-	
 		printf("\nPORFAVOR ANTES DE FAZER QUALQUER AÇÃO INICIA A LISTA COM A OPÇÃO 1\n\n");
 	do{
 		printf("Ecolha uma das opções!\n");
@@ -32,8 +30,8 @@ int main(int argc, const char * argv[]){
 			case 1:
 				
 			// chamada para iniciar a lista
-				inicia(&ll);		//Letra (a)
-				inicia(&lls);
+				inicia(&lld);		//Letra (a)
+				inicia(&llds);
 				system("clear");
 				printf("Lista iniciada\n\n");
 				printf("Obrigado pro inicializar a lista!!\n\n");
@@ -42,40 +40,39 @@ int main(int argc, const char * argv[]){
 			case 2:
 				system("clear");
 				printf("\nLista: ");
-				imprimir(ll);
-				printf("\n\n");
+				imprimir(lld);
+				printf("\n");
 				printf("Inserindo no inico da lista\n\n");
 				printf("Informe o elemento que deseja incerir:");
 				scanf("%d",&valor);
-			// chamada para inserir no inicio da lista
-				insInicio(&ll,valor);
-				printf("\n\n");
-	
+			//Chamada para inserir no inico da lista
+				insreInicioLLDE(&lld,valor);
+				printf("\n\n");	
 			break;
 
 			case 3:
 				system("clear");
 				printf("\nLista: ");
-				imprimir(ll);
-				printf("\n\n");
-				printf("Inserindo no final da lista\n\n");
+				imprimir(lld);
+				printf("\n");
+				printf("Inserindo no inico da lista\n\n");
 				printf("Informe o elemento que deseja incerir:");
 				scanf("%d",&valor);
-			//chamada para inserir no final da lista
-				insFinalLLSE(&ll,valor);
-				printf("\n\n");
+			//Chamada para inserir no final da lista		
+				insFinalLLDE(&lld,valor);
+				printf("\n\n");	
 			break;
 
 			case 4:
 				system("clear");
 				printf("\nLista: ");
-				imprimir(ll);
+				imprimir(lld);
 				printf("\n\n");
 				printf("Inserindo um elemento na ordem correta\n\n");
 				printf("Informe o elemento que deseja incerir:");
 				scanf("%d",&valor);
 			//Chamada para inserir um elemento na ordem correta
-				insOrdenadoLLSE(&ll,valor);	//Letra (d)
+				insOrdenadoLLDE(&lld,valor);	//Letra (d)
 				printf("\n\n");
 	
 			break;
@@ -84,118 +81,111 @@ int main(int argc, const char * argv[]){
 				system("clear");
 				printf("Removendo o primeiro elemento da lista\n");
 			//chamada para remover elemento do inicio da lista	
-				removInicio(&ll);
+				removeInicio(&lld);
 				printf("\n\n");
-	
 			break;
 
 			case 6:
 				system("clear");
 				printf("Removendo o ultimo elemento da lista\n");
 			//chamada para remover elemento do final da lista	
-				removFinal(&ll);
+				removeFinal(&lld);
 				printf("\n\n");
-	
 			break;
 	
 			case 7:
 				system("clear");
 				printf("Removendo o um elemento pelo valor\n");
 				printf("\nLista: ");
-				imprimir(ll);
+				imprimir(lld);
 				printf("\n\n");
 				printf("Qual elemento deseja retirar: ");
 				scanf("%d",&valor);
 			//chamada para remover elemento desejado
-				removPorValor(&ll,valor);				
+				removePorValor(&lld,valor);				
 				printf("\n\nNova lista: ");
-				imprimir(ll);
+				imprimir(lld);
 				printf("\n\n");
-	
 			break;
 
 			case 8:
 				system("clear");
 				printf("Separando a lista a partir de um valor\n");
 				printf("\n");
-				imprimir(ll);
+				imprimir(lld);
 				printf("\n");	
 				printf("A partir de qual valor deseja separar a lista: ");			
 				scanf("%d",&valor);
 			//epare uma lista, a partir de um valor informado
-				separaListaValor(&ll,&lls,valor);
+				separaListaValor(&lld,&llds,valor);
 				printf("\nLista Primaria: ");
-				imprimir(ll);
+				imprimir(lld);
 				printf("\n\nLista Secundaria: ");
-				imprimir(lls);
+				imprimir(llds);
 				printf("\n\n");
-				
 			break;
 
 			case 9:
 				system("clear");
 				printf("Dividindo a lista a partir de um indice\n");
 				printf("\n\n");
-				imprimir(ll);
+				imprimir(lld);
 				printf("\n\n");	
 				printf("A partir de qual indice deseja separar a lista: ");			
 				scanf("%d",&valor);
 			//Chamada para separar a lista por indice
-				separaListaIndice(&ll,&lls,valor);
+				separaListaIndice(&lld,&llds,valor);
 				printf("\nLista Primaria: ");
-				imprimir(ll);
+				imprimir(lld);
 				printf("\n\nLista Secundaria: ");
-				imprimir(lls);
+				imprimir(llds);
 				printf("\n\n");
-				
 			break;
 
 			case 10:
 				system("clear");
 				printf("Concatenando duas listas\n");
 				printf("\nLista Primaria: ");
-				imprimir(ll);
+				imprimir(lld);
 				printf("\n\nLista Secundaria: ");
-				imprimir(lls);
+				imprimir(llds);
 				printf("\n\n");
 			//Concatena duas listas
-				juntandoDuasListas(&ll,&lls); // Letra (m)
+				juntandoDuasListas(&lld,&llds); // Letra (m)
 				printf("\nLista Concatenada: ");
-				imprimir(ll);
-				printf("\n\n\n");
-	
+				imprimir(lld);
+				printf("\n\n");
 			break;
 
 			case 11:
 				system("clear");
 				printf("\nLista: ");
-				imprimir(ll);
+				imprimir(lld);
 				printf("\n\n");
-				printf("Ordenando lista em ordem crescente No momento não esta funcionando!\n\n");
-			//chamanda para inverter a lista
-				//ordenaListCrescente(&ll);
-				//printf("\nLista ordenada: ");
-				//imprimir(ll);
-				//printf("\n\n");
-	
+				printf("Ordenando lista em ordem crescente\n\n");
+			//chamanda para Ordenar uma lista em ordem crescente
+			/*	ordenaListaCrescente(&lld,&llds);
+				printf("\nLista ordenada: ");
+				imprimir(lld);
+				printf("\n\n");*/
 			break;
 
 			case 12:
 				system("clear");
 				printf("\nLista: ");
-				imprimir(ll);
+				imprimir(lld);
 				printf("\n\n");
 				printf("Invertendo Lista!\n\n");
-				inverteLista(&ll,&lls);	
+				inverteLista(&lld,&llds);
 			break;
 
 			case 13:
 				system("clear");
 				printf("\nLista: ");
-				imprimir(ll);
+				imprimir(lld);
 				printf("\n\n");
 				printf("Limpando a Lista!\n\n");
-				limpaLista(&ll);
+				limpaLista(&lld);
 			break;
 
 			case 14:
@@ -203,14 +193,14 @@ int main(int argc, const char * argv[]){
 				printf("\nImprime a lista\n");
 			// chamada para imprime a lista
 				printf("\nLista: ");
-				imprimir(ll);
+				imprimir(lld);
 				printf("\n\n\n");
 			break;
 
-			
 			default:
 				printf("Fim\n");
 		}
 	}while(op != 0);
 	return 0;
 }
+//Kaíque Matheus R. Cunha  3° SI
